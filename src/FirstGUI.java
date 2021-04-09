@@ -1,7 +1,7 @@
 
 import java.awt.Button;
-import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.TextField;
 
@@ -26,8 +26,11 @@ public class FirstGUI {
             Button b1=new Button("Save");
         
         //step-3    (add components on container)
-            f.setLayout(new FlowLayout());
-            f.add(l1); f.add(t1); f.add(l2); f.add(t2);   f.add(b1);
+            GridLayout gL=new GridLayout(3,2);
+            f.setLayout(gL);
+            //f.setLayout(new FlowLayout());
+            //f.add("North",l1); f.add("South",t1); f.add(l2); f.add(t2);   f.add(b1);
+            f.add(l1); f.add(t1); f.add(l2); f.add(t2); f.add(b1);
         
     }
 }
