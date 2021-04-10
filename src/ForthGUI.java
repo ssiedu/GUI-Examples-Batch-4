@@ -1,3 +1,9 @@
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Point;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +21,7 @@ public class ForthGUI extends java.awt.Frame {
      */
     public ForthGUI() {
         initComponents();
+        setSize(600,600);
     }
 
     /**
@@ -26,8 +33,13 @@ public class ForthGUI extends java.awt.Frame {
     private void initComponents() {
 
         label1 = new java.awt.Label();
-        textField1 = new java.awt.TextField();
         button1 = new java.awt.Button();
+        button2 = new java.awt.Button();
+        button3 = new java.awt.Button();
+        button4 = new java.awt.Button();
+        button5 = new java.awt.Button();
+        button6 = new java.awt.Button();
+        button7 = new java.awt.Button();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -36,21 +48,73 @@ public class ForthGUI extends java.awt.Frame {
         });
         setLayout(null);
 
-        label1.setText("Userid");
+        label1.setBackground(new java.awt.Color(204, 255, 204));
+        label1.setText("label1");
         add(label1);
-        label1.setBounds(100, 120, 90, 50);
+        label1.setBounds(40, 40, 200, 80);
 
-        textField1.addActionListener(new java.awt.event.ActionListener() {
+        button1.setLabel("Size");
+        button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField1ActionPerformed(evt);
+                button1ActionPerformed(evt);
             }
         });
-        add(textField1);
-        textField1.setBounds(220, 130, 180, 30);
-
-        button1.setLabel("Submit");
         add(button1);
-        button1.setBounds(190, 210, 80, 40);
+        button1.setBounds(40, 200, 70, 24);
+
+        button2.setLabel("Loc");
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
+        add(button2);
+        button2.setBounds(130, 200, 70, 24);
+
+        button3.setLabel("Vsbl");
+        button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button3ActionPerformed(evt);
+            }
+        });
+        add(button3);
+        button3.setBounds(220, 200, 80, 24);
+
+        button4.setLabel("white");
+        button4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button4ActionPerformed(evt);
+            }
+        });
+        add(button4);
+        button4.setBounds(40, 250, 45, 24);
+
+        button5.setLabel("yellow");
+        button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button5ActionPerformed(evt);
+            }
+        });
+        add(button5);
+        button5.setBounds(130, 250, 50, 24);
+
+        button6.setLabel("Color");
+        button6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button6ActionPerformed(evt);
+            }
+        });
+        add(button6);
+        button6.setBounds(220, 250, 70, 24);
+
+        button7.setLabel("Font");
+        button7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button7ActionPerformed(evt);
+            }
+        });
+        add(button7);
+        button7.setBounds(330, 200, 80, 24);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -62,9 +126,62 @@ public class ForthGUI extends java.awt.Frame {
         System.exit(0);
     }//GEN-LAST:event_exitForm
 
-    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        
+        //reading the size of label
+        Dimension d=label1.getSize();
+        int w=d.width;
+        int h=d.height;
+        //changing the size of label
+        
+        label1.setSize(w+10, h);
+        
+    }//GEN-LAST:event_button1ActionPerformed
+
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        
+        //reading the current position
+            Point pt=label1.getLocation();
+            int x=pt.x;
+            int y=pt.y;
+        //changing the currenct position
+            label1.setLocation(x, y+10);
+    }//GEN-LAST:event_button2ActionPerformed
+
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+        //show/hide the label1 (if shown , we will hide)
+        boolean b=label1.isVisible();
+        label1.setVisible(!b);
+        /*
+        if(b){
+            label1.setVisible(false);
+        }else{
+            label1.setVisible(true);
+        }
+        */
+    }//GEN-LAST:event_button3ActionPerformed
+
+    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField1ActionPerformed
+        label1.setBackground(Color.WHITE);
+    }//GEN-LAST:event_button4ActionPerformed
+
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+        // TODO add your handling code here:
+        label1.setBackground(Color.YELLOW);
+    }//GEN-LAST:event_button5ActionPerformed
+
+    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
+        Color cL=new Color(100,150,125); //0-255 (R,G,B)
+        label1.setBackground(cL);
+        
+    }//GEN-LAST:event_button6ActionPerformed
+
+    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
+        Font f=new Font("Arial",Font.BOLD+Font.ITALIC, 25);
+        label1.setFont(f);
+        
+    }//GEN-LAST:event_button7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,7 +197,12 @@ public class ForthGUI extends java.awt.Frame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
+    private java.awt.Button button2;
+    private java.awt.Button button3;
+    private java.awt.Button button4;
+    private java.awt.Button button5;
+    private java.awt.Button button6;
+    private java.awt.Button button7;
     private java.awt.Label label1;
-    private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }
